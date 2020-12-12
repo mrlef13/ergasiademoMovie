@@ -8,4 +8,6 @@ import com.example.demo.Entity.Movie;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie,Long> {
 
+	Movie save(Movie movie);
+	
 }

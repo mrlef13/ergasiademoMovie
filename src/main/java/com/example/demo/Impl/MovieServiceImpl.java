@@ -25,6 +25,7 @@ public List<Movie> retrieveMovies() {
 	 }
 	  
 	 public Movie getMovie(Long movieId) {
+		System.out.println("In getMovie");
 	  Optional<Movie> optEmp = movieRepository.findById(movieId);
 	  return optEmp.get();
 	 }
@@ -32,23 +33,19 @@ public List<Movie> retrieveMovies() {
 /*mphkan apo mones tous*/
 
 
-@Override
-public void saveMovie(Object movie) {
-	// TODO Auto-generated method stub
-	
-}
 
 @Override
+public void saveMovie(Movie movie) {
+	Movie m= movieRepository.save(movie);
+}
+
+
 public void deleteMovie(Long movieId) {
-	// TODO Auto-generated method stub
-	
+	System.out.println("In deleteMovie");
+	movieRepository.deleteById(movieId);	
 }
 
 
-public void updateMovie(Movie movie) {
-	// TODO Auto-generated method stub
-	
-}
 @Override
 public void updateMovie(Object movie) {
 	// TODO Auto-generated method stub

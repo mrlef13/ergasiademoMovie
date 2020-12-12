@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Service.MovieService;
@@ -30,6 +31,7 @@ public List<Movie> getMovies() {
 	  
 @GetMapping("/api/movies/{movieId}")
    public Movie getMovie(@PathVariable(name="movieId")Long movieId) {
+	System.out.println("In get");
 	 return (Movie) movieService.getMovie(movieId);
 	  }
 	  
@@ -39,9 +41,10 @@ public void saveMovie(Movie movie){
  System.out.println("Movie Saved Successfully");
 }
 	  
-@DeleteMapping("/api/movies/{moviesId}")
+@DeleteMapping("/api/movies/{movieId}")
 public void deleteMovie(@PathVariable(name="movieId")Long movieId){
-movieService.deleteMovie(movieId);
+	System.out.println("In delete");
+	movieService.deleteMovie(movieId);
  System.out.println("Movie Deleted Successfully");
 }
  

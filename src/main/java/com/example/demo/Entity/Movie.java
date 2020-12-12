@@ -42,11 +42,11 @@ private String director;
 	  this.title = title;
 	 }
 	 
-	 public Integer getImdbID() {
+	 public int getImdbID() {
 	  return imdbid;
 	 }
 	 
-	 public void setImdbID(Integer imdbid) {
+	 public void setImdbID(int imdbid) {
 	  this.imdbid = imdbid;
 	 }
 	 
