@@ -1,0 +1,76 @@
+body {
+   font-family: verdana;
+   background-color: black;
+   background-position: center;
+   text-align: center;
+}
+#logoutbtn{
+   top:2%;
+   position: absolute;
+   right: 3%;
+   color: gainsboro;
+   background-color: darkgreen;
+   border-radius: 4px;
+}
+#myprofile{
+   top:2%;
+   position: absolute;
+   left: 3%;
+   color: gainsboro;
+   background-color: darkgreen;
+   border-radius: 4px;
+}
+h1 {
+   color: lightgray;
+   width: 60%;
+   text-align: center;
+   margin: auto;
+
+}
+#Searchbar{
+   padding: 1%;
+   margin: auto;
+   width: 50%;
+}
+
+#Searchbar input{
+  margin: auto;
+  width: 90%;
+  align-content: center;
+  color: black;
+  font-family: 'Knewave', cursive;
+  height: 2vh;
+  border-color: green;
+
+}
+
+#MovieResults { 
+  margin: 0%;
+  padding: 0%;
+  color: whitesmoke;
+  text-align: center;
+}
+
+#MovieResults > img{
+    padding: 1%;
+    width: 17%;
+  
+}
+#Moredetails {
+  margin: auto;
+  color: whitesmoke;
+  background-color: darkgreen;
+}
+
+#MovieMoreInfo{
+  margin: 3%;
+  color: whitesmoke;
+  padding: 0%;
+  text-align: center;
+}
+
+#MovieMoreInfo > button{
+   width: 13%;
+   color: whitesmoke;
+   background-color: darkgreen;
+}

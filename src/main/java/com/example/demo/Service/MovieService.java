@@ -1,18 +1,16 @@
-package Service;
+package com.example.demo.Service;
 import java.util.List;
 
-import Entity.Movie;
+import com.example.demo.Entity.Movie;
 
 
+@SuppressWarnings("hiding")
 public interface MovieService<Movie> {
 
 
-			 public default List<Movie> retrieveMovies() {
-				// TODO Auto-generated method stub
-				return null;
-			}
+			 public List<Movie> retrieveMovies();
 			  
-			 public Entity.Movie getMovie(Long movieId);
+			 public Movie  getMovie(Long movieId);
 			  
 			 public void saveMovie(Movie movie);
 			  

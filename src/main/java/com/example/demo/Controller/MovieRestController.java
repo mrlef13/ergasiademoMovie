@@ -1,4 +1,4 @@
-package Controller;
+package com.example.demo.Controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import Service.MovieService;
-import Entity.Movie;
+import com.example.demo.Service.MovieService;
+import com.example.demo.Entity.Movie;
 
 @RestController
 public class MovieRestController {
@@ -30,7 +30,7 @@ public List<Movie> getMovies() {
 	  
 @GetMapping("/api/movies/{movieId}")
    public Movie getMovie(@PathVariable(name="movieId")Long movieId) {
-	 return movieService.getMovie(movieId);
+	 return (Movie) movieService.getMovie(movieId);
 	  }
 	  
 @PostMapping("/api/movies")
@@ -46,9 +46,8 @@ movieService.deleteMovie(movieId);
 }
  
 @PutMapping("/api/movies/{movieId}")
-public void updateMovie(@RequestBody Movie movie,
-  @PathVariable(name="movieId")Long movieId){
-	Movie mov = movieService.getMovie(movieId);
+public void updateMovie(@RequestBody Movie movie, @PathVariable(name="movieId")Long movieId){
+	Movie mov = (Movie) movieService.getMovie(movieId);
  if(mov != null){
 	 movieService.updateMovie(movie);
  }

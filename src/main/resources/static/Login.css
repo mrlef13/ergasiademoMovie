@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    background-position: center;
+    font-family: verdana;
+    
+}
+h1{
+    position: center;
+    text-align: center;
+    color: lightgray;
+    margin: 0%;
+    padding: 1%;
+
+
+}
+h2{
+    margin: 3%;
+    padding: 10%;
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 0;  
+    padding-bottom: 3%;
+}
+form {
+        position: center;
+        margin: 1%;
+        padding: 0;
+        text-align: center;
+        border-color: green;
+    
+
+}
+
+.login > button{
+   text-align: center;
+   margin: 44%;
+   width: 13%;
+   margin-top: 2%;
+   align-content: center;
+   color: whitesmoke;
+   background-color: darkgreen;
+}
+
+form > input {font-family: 'Knewave', cursive;}

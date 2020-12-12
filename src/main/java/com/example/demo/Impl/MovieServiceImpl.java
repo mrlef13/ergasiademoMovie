@@ -1,16 +1,14 @@
-package Impl;
+package com.example.demo.Impl;
 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 
-import Entity.Movie;
-import Service.MovieService;
-import Repository.MovieRepository;
-/* na valoume-import kai to repository
- */
+import com.example.demo.Entity.Movie;
+import com.example.demo.Service.MovieService;
+import com.example.demo.Repository.MovieRepository;
+
 
 @Service
 public class MovieServiceImpl implements MovieService{

@@ -1,0 +1,36 @@
+body {
+   font-family: verdana;
+   background-color: black;
+   background-position: center;
+}
+
+
+h1 {
+   color: lightgray;
+   padding-top: 2%;  
+   text-align: center;
+}
+#homebtn{
+  position: absolute;
+   left: 3%;
+   color: gainsboro;
+   background-color: darkgreen;
+   border-radius: 4px;
+
+}
+#logoutbtn{
+   top:auto;
+   position: absolute;
+   right: 3%;
+   color: gainsboro;
+   background-color: darkgreen;
+   border-radius: 4px;
+}
+
+h2{
+    padding-top: 5%;   
+    color: whitesmoke;
+    text-align: center;
+    padding-bottom: 1%;
+
+}

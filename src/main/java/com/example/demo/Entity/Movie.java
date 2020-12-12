@@ -1,4 +1,4 @@
-package Entity;
+package com.example.demo.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +26,7 @@ private String writer;
 @Column(name="DIRECTOR")
 private String director;
 
-public Long getId() {
+     public Long getId() {
 	  return id;
 	 }
 	 
