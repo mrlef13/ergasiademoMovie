@@ -1,10 +1,14 @@
 package com.example.demo.Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,13 +16,13 @@ import javax.persistence.Table;
 public class Movie {
 @Id
 @GeneratedValue(strategy= GenerationType.IDENTITY)
-private Long id;
+private Long movieid;
 
 @Column(name="TITLE")
 private String title;
 
-@Column(name="IMDB_ID")
-private int imdbid;
+@Column(name="IMDBID")
+private String imdbid;
  
 @Column(name="WRITER")
 private String writer;
@@ -26,12 +30,15 @@ private String writer;
 @Column(name="DIRECTOR")
 private String director;
 
+@ManyToMany
+private Set<User> users=new HashSet<User>();
+
      public Long getId() {
-	  return id;
+	  return movieid;
 	 }
 	 
 	 public void setId(Long id) {
-	  this.id = id;
+	  this.movieid = id;
 	 }
 	 
 	 public String getTitle() {
@@ -42,11 +49,11 @@ private String director;
 	  this.title = title;
 	 }
 	 
-	 public int getImdbID() {
+	 public String getImdbid() {
 	  return imdbid;
 	 }
 	 
-	 public void setImdbID(int imdbid) {
+	 public void setImdbid(String imdbid) {
 	  this.imdbid = imdbid;
 	 }
 	 
