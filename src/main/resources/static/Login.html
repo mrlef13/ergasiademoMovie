@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link rel="stylesheet" href="Login.css" />
 
     <h1> Welcome to Movie Search</h1>
@@ -8,14 +9,16 @@
         <form method="post">
                 <h2>Please login</h2>
 
-        <input type="text" name="u" placeholder="Username" 
+        <input type="text" id="u" placeholder="Username" 
           required="required" />
         <input type="password" 
-        name="p" placeholder="Password" 
+        id="p" placeholder="Password" 
         required="required" />
         
         
     </form>
-        <button type="submit" class="btn btn-primary btn-block btn-large">Sign in </button>
+        <button type="submit" onclick='Login()' class="btn btn-primary btn-block btn-large">Sign in </button>
 </div>
+              <script src="Login.js"></script>  
+
 </html>
