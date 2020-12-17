@@ -33,6 +33,9 @@ private String director;
 @ManyToMany
 private Set<User> users=new HashSet<User>();
 
+@ManyToMany
+private Set<Writer> writers=new HashSet<Writer>();
+
      public Long getId() {
 	  return movieid;
 	 }
