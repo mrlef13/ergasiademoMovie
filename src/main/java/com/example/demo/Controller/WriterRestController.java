@@ -25,6 +25,7 @@ public class WriterRestController {
 
 	@Autowired
 	private WriterService writerService;
+	@Autowired
 	private MovieService movieService;
 		
 		@GetMapping("/api/writers")

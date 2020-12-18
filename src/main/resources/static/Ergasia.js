@@ -14,6 +14,8 @@ var json= "";
 var apikey= "f675ca42"  ;         
 var URL = "http://www.omdbapi.com/?i=tt3896198&apikey="+ apikey+ "&t=" +input.value;
 var output  = ""; 
+var userid = getParameterByName('userid');
+
     
 currentinput = input.value;
     if (input.value == "") {
@@ -32,7 +34,7 @@ currentinput = input.value;
                //console.log(data)
           if (data.hasOwnProperty('imdbID')){
 
-             output +="<h3>Title: "+data.Title+" </h3><h4>Year: "+data.Year+" </h4><img src="+data.Poster+"/><h5 id='plot'>  Plot: "+data.Plot+" </h5><br><button class='Moredetails' id='Moredetails' onclick= 'MovieSelected(\""+data.imdbID+"\")'>More Info</button>";
+             output +="<h3>Title: "+data.Title+" </h3><h4>Year: "+data.Year+" </h4><img src="+data.Poster+"/><h5 id='plot'>  Plot: "+data.Plot+" </h5><br><button class='Moredetails' id='Moredetails' onclick= 'MovieSelected(\""+data.imdbID+"\")'>More Info</button><button class='AddtoProfile' id='AddtoProfile' onclick= 'AddtoProfile(\""+data.imdbID+"\",\""+userid+"\")'>Add to My Profile</button>";
             
             output2[0] = "<h5>Runtime: "+data.Runtime+" </h5>" ;
             output2[1] = "<h5>Writer: "+data.Writer+" </h5>" ;
@@ -93,4 +95,18 @@ function MovieSelected (id) {
     document.getElementById('Moredetails').style.display= "none";
     document.getElementById('MovieMoreInfo').style.display="block";
     document.getElementById('plot').style.display= "none";
+}
+
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+ 
+function AddtoProfile(imdbid, userid){
+    
 }

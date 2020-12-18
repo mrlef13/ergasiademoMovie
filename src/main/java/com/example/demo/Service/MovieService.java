@@ -10,7 +10,7 @@ public interface MovieService<Movie> {
 
 			 public List<Movie> retrieveMovies();
 			  
-			 public Movie  getMovie(Long movieId);
+			 public com.example.demo.Entity.Movie  getMovie(Long movieId);
 			 public void deleteMovie(Long movieId);
 			  
 			 public void updateMovie(Movie movie); /* den kserw an xreizetai*/

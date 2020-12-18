@@ -3,9 +3,8 @@ package com.example.demo.Service;
 import java.util.List;
 
 import com.example.demo.Entity.Writer;
-
 @SuppressWarnings("hiding")
-public interface WriterService{
+public interface WriterService<Writer>{
 
 
 				 public List<Writer> retrieveWriters();

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,10 +24,16 @@ public class User {
 	@Column(name="USERPASS")
 	private String password;
 	
-	@OneToMany
+	@ManyToMany
 	@JoinColumn(name="movieid")
 	private Set<Movie> movies=new HashSet<Movie>();
 	
+	public Set<Movie> getMovies() {
+		return movies;
+	}
+	public void setMovies(Set<Movie> movies) {
+		this.movies = movies;
+	}
 	public Long getUserid() {
 		return userid;
 	}
@@ -51,4 +58,18 @@ public class User {
 		this.username=username;
 		this.password=password;
 	}
+	
+	public void addMovie(Movie movie) {
+		movies.add(movie);
+	}
+	
+	public void removeMovie(Movie movie) {		
+		for(Movie m:movies) {
+			if(m==movie) {
+				movies.remove(movie);
+				break;
+			}			
+		}		
+	}
+	
 }

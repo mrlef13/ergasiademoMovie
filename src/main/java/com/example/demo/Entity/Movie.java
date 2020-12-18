@@ -75,4 +75,9 @@ private Set<Writer> writers=new HashSet<Writer>();
 	public void setDirector(String director) {
 	 this.director = director;
 		 }
+
+	public void addUser(User user) {
+		users.add(user);
+		
+	}
 }
