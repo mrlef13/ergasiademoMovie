@@ -20,7 +20,7 @@ var settings = {
 $.ajax(settings).success(function (response) {
 	alert(response);
 	alert(response==200);
-	if (response==200){window.location.replace("Ergasia.html");}
+	if (response==200){window.location.replace("Ergasia.html/?userid=");}
 	else alert("please provide correct credentials");
 });
 

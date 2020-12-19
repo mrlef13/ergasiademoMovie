@@ -1,11 +1,16 @@
 const MovieResults = document.getElementById('MovieResults')
 const MovieMoreInfo = document.getElementById('MovieMoreInfo')
 
-var data= "";
+var jsondata= "";
 var moviechosen = "";
 var output2= new Array();
 var output3= "";
 var currentinput= "";
+
+
+$("#myprofile").click(function gotoMyprofile() {
+	window.location.replace("Myprofile.html?userid="+getParameterByName('userid'));
+});
 
 function KeepSearch() {
 var input= document.getElementById("sid");
@@ -33,8 +38,10 @@ currentinput = input.value;
                success: function(data){ 
                //console.log(data)
           if (data.hasOwnProperty('imdbID')){
-
-             output +="<h3>Title: "+data.Title+" </h3><h4>Year: "+data.Year+" </h4><img src="+data.Poster+"/><h5 id='plot'>  Plot: "+data.Plot+" </h5><br><button class='Moredetails' id='Moredetails' onclick= 'MovieSelected(\""+data.imdbID+"\")'>More Info</button><button class='AddtoProfile' id='AddtoProfile' onclick= 'AddtoProfile(\""+data.imdbID+"\",\""+userid+"\")'>Add to My Profile</button>";
+			jsondata=data;
+             output +="<h3>Title: "+data.Title+" </h3><h4>Year: "+data.Year+" </h4><img src="+data.Poster+"/>"
+					+"<h5 id='plot'>  Plot: "+data.Plot+" </h5><br><button class='Moredetails' id='Moredetails' onclick= 'MovieSelected(\""+data.imdbID+"\")'>"
+					+"More Info</button><button class='AddtoProfile' id='AddtoProfile' onclick= 'findMovieFromIMDBID(\""+data.imdbID+"\",\""+userid+"\")'>Add to My Profile</button>";
             
             output2[0] = "<h5>Runtime: "+data.Runtime+" </h5>" ;
             output2[1] = "<h5>Writer: "+data.Writer+" </h5>" ;
@@ -52,7 +59,8 @@ currentinput = input.value;
             output2[13] = "<br><button id='LessInfo' class='LessInfo' onclick='HideInfo()'>Less Info</button>";
 
 
-            MovieResults.innerHTML= output;
+    	MovieResults.innerHTML= output;
+	
             MovieMoreInfo.innerHTML= "";
                             
                    }else{ MovieResults.innerHTML = ""; }
@@ -106,7 +114,53 @@ function getParameterByName(name, url = window.location.href) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
- 
-function AddtoProfile(imdbid, userid){
-    
+
+function AddtoProfile(movieid, userid){
+			console.log("AddtoProfile "+movieid);	
+			var URL3= "http://localhost:8080/api/profile/?userid="+userid+"&movieid="+movieid;
+			$.ajax({
+             method:'PUT',
+             url: URL3,
+             success: function(data3){
+				alert("movie added");
+        	}
+     	});
 }
+ 
+function findMovieFromIMDBID(imdbid,userid){
+var URL= "http://localhost:8080/api/movies/?imdbid="+imdbid;
+
+ $.ajax({
+               method:'GET',
+               url: URL,
+               success: function(data){							
+				if (data==0){					
+						var form = new FormData();
+						form.append("title", jsondata.Title);
+						form.append("writer", jsondata.Writer);
+						form.append("director",jsondata.Director);
+						form.append("imdbid", imdbid);
+						
+						var settings = {
+						  "url": "http://localhost:8080/api/movies/",
+						  "method": "POST",
+						  "timeout": 0,						  
+						  "processData": false,
+						  "mimeType": "multipart/form-data",
+						  "contentType": false,
+						  "data": form
+						};
+						
+						$.ajax(settings).done(function (response) {
+						  AddtoProfile(response, userid)
+						});
+				}
+				if (data>0){
+					AddtoProfile(data, userid)
+				}				
+				
+               }
+			
+     })
+}
+

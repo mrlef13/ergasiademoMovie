@@ -34,11 +34,26 @@ public List<Movie> getMovies() {
 	System.out.println("In get");
 	 return (Movie) movieService.getMovie(movieId);
 	  }
+
+@GetMapping("/api/movies/")
+public Long getMovieByImdbid(@RequestParam(name="imdbid")String imdbid) {
+	List<Movie> movies=getMovies();
+	Long res=(long)(0);
+	
+	for(Movie m: movies) {
+		if(m.getImdbid().equals(imdbid)) {
+			res=m.getId();
+			break;
+		}
+	}
+		 return res;
+	 }
 	  
 @PostMapping("/api/movies")
-public void saveMovie(Movie movie){
+public Long saveMovie(Movie movie){
 	movieService.saveMovie(movie);
- System.out.println("Movie Saved Successfully");
+	System.out.println("Movie Saved Successfully");
+	return movie.getId();
 }
 	  
 @DeleteMapping("/api/movies/{movieId}")

@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,8 +34,9 @@ private String writer;
 private String director;
 
 @ManyToMany
+@JoinColumn(name="userid")
 private Set<User> users=new HashSet<User>();
-
+//private User user=new User();
 @ManyToMany
 private Set<Writer> writers=new HashSet<Writer>();
 
@@ -77,7 +81,9 @@ private Set<Writer> writers=new HashSet<Writer>();
 		 }
 
 	public void addUser(User user) {
-		users.add(user);
-		
+		users.add(user);		
+		//this.user=user;
 	}
+	
+	
 }
