@@ -17,7 +17,8 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;	
 	
 	@Override
-	public boolean login(String username, String pass) {
+	public Long login(String username, String pass) {
+	Long userid = null;
 		List<User> users=userRepository.findAll();
 		boolean flag=false;
 		System.out.println("in login "+username+", "+pass);
@@ -25,11 +26,11 @@ public class UserServiceImpl implements UserService {
 			System.out.println("in loop "+u.getUsername()+", "+u.getPassword());
 			if(u.getUsername().equals(username) && u.getPassword().equals(pass) ) {			
 				System.out.println("in if "+u.getUsername()+", "+u.getPassword());
-				flag=true;
+				userid= u.getUserid();
 				break;
 			}
 		}  				
-		return flag;
+		return userid;
 	}
 	
 	public User retrieveUser(Long userid) {
@@ -41,6 +42,6 @@ public class UserServiceImpl implements UserService {
 		User u= userRepository.save(user);
 	}
 
-	
+
 
 }

@@ -20,13 +20,13 @@ public class UserRestController {
 	private UserService userService;	
 
 	@PostMapping("/user/login")
-	public int login(User u){
+	public Long login(User u){
 		
 		System.out.println("in post "+u.getUsername()+", "+u.getPassword());
-	boolean flag= userService.login(u.getUsername(),u.getPassword());
-	if(flag) {
-        return 200;
-    }else return 403;
+	Long userid= userService.login(u.getUsername(),u.getPassword());
+	if(userid!=null) {
+        return userid;
+    }else return null;
 	 
 	}
 	

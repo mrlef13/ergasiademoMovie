@@ -19,14 +19,7 @@ var settings = {
 
 $.ajax(settings).success(function (response) {
 	alert(response);
-	alert(response==200);
-	if (response==200){window.location.replace("Ergasia.html/?userid=");}
-	else alert("please provide correct credentials");
+	if (response!=null){window.location.replace("Ergasia.html?userid="+response);}
+	else alert("Please provide correct credentials");
 });
-
-/*
-const Http = new XMLHttpRequest();
-const url="http://localhost:8080/user/login/";
-Http.open('POST',url);
-*/
 }
