@@ -8,7 +8,7 @@ form.append("username", u);
 form.append("password", p);
 
 var settings = {
-  "url": "http://localhost:8080/user/login/",
+  "url": "http://localhost:8080/api/user/login/",
   "method": "POST",
   "timeout": 0,  
   "processData": false,

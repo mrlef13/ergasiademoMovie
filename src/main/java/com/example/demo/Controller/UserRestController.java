@@ -19,7 +19,7 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;	
 
-	@PostMapping("/user/login")
+	@PostMapping("api/user/login")
 	public Long login(User u){
 		
 		System.out.println("in post "+u.getUsername()+", "+u.getPassword());

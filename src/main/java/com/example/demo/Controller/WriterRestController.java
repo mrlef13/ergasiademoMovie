@@ -34,7 +34,7 @@ public class WriterRestController {
 			  return writers;
 		}
 			  
-		@GetMapping("/api/writes/{writerId}")
+		@GetMapping("/api/writers/{writerId}")
 		   public Writer getWriter(@PathVariable(name="writerId")Long writerId) {
 			System.out.println("In get");
 			 return (Writer) writerService.getWriter(writerId);
