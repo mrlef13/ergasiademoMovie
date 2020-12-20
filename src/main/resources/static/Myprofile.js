@@ -2,6 +2,10 @@ const SavedMovies = document.getElementById('SavedMovies')
 
 var ommitProperties= ["id", "imdbid"];
 
+$("#homebtn").click(function gotoSearch() {
+	window.location.replace("Ergasia.html?userid="+getParameterByName('userid'));
+});
+
 $( document ).ready(function getAllMoviesOfUser() {
 	URL="http://localhost:8080/api/profile/?userid="+getParameterByName('userid');
 	$.ajax({		

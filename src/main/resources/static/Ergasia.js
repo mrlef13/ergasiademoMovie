@@ -7,6 +7,9 @@ var output2= new Array();
 var output3= "";
 var currentinput= "";
 
+$("#logoutbtn").click(function gotoLogin() {
+	window.location.replace("Login.html?")
+});
 
 $("#myprofile").click(function gotoMyprofile() {
 	window.location.replace("Myprofile.html?userid="+getParameterByName('userid'));
