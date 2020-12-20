@@ -39,6 +39,8 @@ private Set<User> users=new HashSet<User>();
 //private User user=new User();
 @ManyToMany
 private Set<Writer> writers=new HashSet<Writer>();
+@ManyToMany
+private Set<Director> diretctors=new HashSet<Director>();
 
      public Long getId() {
 	  return movieid;
@@ -83,6 +85,14 @@ private Set<Writer> writers=new HashSet<Writer>();
 	public void addUser(User user) {
 		users.add(user);		
 		//this.user=user;
+	}
+
+	public Set<Director> getDiretctors() {
+		return diretctors;
+	}
+
+	public void setDiretctors(Set<Director> diretctors) {
+		this.diretctors = diretctors;
 	}
 	
 	
