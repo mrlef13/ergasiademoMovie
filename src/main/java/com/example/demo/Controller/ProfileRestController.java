@@ -30,8 +30,7 @@ public class ProfileRestController {
 	}
 	
 	@PutMapping("/api/profile/")
-	public void saveMovieToProfile(@RequestParam(name="userid")Long userid,@RequestParam(name="movieid")Long movieid) {		
-		System.out.println("profile - in put"+userid+" "+movieid);
+	public void saveMovieToProfile(@RequestParam(name="userid")Long userid,@RequestParam(name="movieid")Long movieid) {				
 		User user=  userService.retrieveUser(userid);
 		Movie movie=  movieService.getMovie(movieid);
 		boolean alreadyExists=false;		

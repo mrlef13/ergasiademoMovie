@@ -30,8 +30,7 @@ public List<Movie> getMovies() {
 }
 	  
 @GetMapping("/api/movies/{movieId}")
-   public Movie getMovie(@PathVariable(name="movieId")Long movieId) {
-	System.out.println("In get");
+   public Movie getMovie(@PathVariable(name="movieId")Long movieId) {	
 	 return (Movie) movieService.getMovie(movieId);
 	  }
 
@@ -51,16 +50,13 @@ public Long getMovieByImdbid(@RequestParam(name="imdbid")String imdbid) {
 	  
 @PostMapping("/api/movies")
 public Long saveMovie(Movie movie){
-	movieService.saveMovie(movie);
-	System.out.println("Movie Saved Successfully");
+	movieService.saveMovie(movie);	
 	return movie.getId();
 }
 	  
 @DeleteMapping("/api/movies/{movieId}")
-public void deleteMovie(@PathVariable(name="movieId")Long movieId){
-	System.out.println("In delete");
-	movieService.deleteMovie(movieId);
- System.out.println("Movie Deleted Successfully");
+public void deleteMovie(@PathVariable(name="movieId")Long movieId){	
+	movieService.deleteMovie(movieId); 
 }
  
 @PutMapping("/api/movies/{movieId}")

@@ -8,7 +8,7 @@ var output3= "";
 var currentinput= "";
 
 $("#logoutbtn").click(function gotoLogin() {
-	window.location.replace("Login.html?")
+	window.location.replace("Login.html")
 });
 
 $("#myprofile").click(function gotoMyprofile() {
@@ -38,8 +38,7 @@ currentinput = input.value;
                cache: false,
                method:'GET',
                url: URL,
-               success: function(data){ 
-               //console.log(data)
+               success: function(data){                
           if (data.hasOwnProperty('imdbID')){
 			jsondata=data;
              output +="<h3>Title: "+data.Title+" </h3><h4>Year: "+data.Year+" </h4><img src="+data.Poster+"/>"

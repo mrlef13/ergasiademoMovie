@@ -40,8 +40,7 @@ public void saveMovie(Movie movie) {
 }
 
 
-public void deleteMovie(Long movieId) {
-	System.out.println("In deleteMovie");
+public void deleteMovie(Long movieId) {	
 	movieRepository.deleteById(movieId);	
 }
 

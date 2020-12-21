@@ -35,8 +35,7 @@ public class DirectorRestController {
 		}
 			  
 		@GetMapping("/api/directors/{directorId}")
-		   public Director getDirector(@PathVariable(name="directorId")Long directorId) {
-			System.out.println("In get");
+		   public Director getDirector(@PathVariable(name="directorId")Long directorId) {			
 			 return (Director) writerService.getDirector(directorId);
 			  }
 			  
@@ -55,7 +54,7 @@ public class DirectorRestController {
 			Director director = (Director) writerService.getDirector(directorId);
 			Movie movie =  (Movie) movieService.getMovie(movieId);
 			if(movie != null && director != null)
-			{ //  director.getMovies().findBy(movieId)  NA BROUME TIN TAINIA KAI NA THN PROSTHETOUME//
+			{
 				
 			 writerService.updateDirector(director);		
 		  }

@@ -20,12 +20,9 @@ public class UserServiceImpl implements UserService {
 	public Long login(String username, String pass) {
 	Long userid = null;
 		List<User> users=userRepository.findAll();
-		boolean flag=false;
-		System.out.println("in login "+username+", "+pass);
-		for (User u : users) {
-			System.out.println("in loop "+u.getUsername()+", "+u.getPassword());
-			if(u.getUsername().equals(username) && u.getPassword().equals(pass) ) {			
-				System.out.println("in if "+u.getUsername()+", "+u.getPassword());
+		boolean flag=false;		
+		for (User u : users) {			
+			if(u.getUsername().equals(username) && u.getPassword().equals(pass) ) {							
 				userid= u.getUserid();
 				break;
 			}

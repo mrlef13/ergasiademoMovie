@@ -35,22 +35,18 @@ public class WriterRestController {
 		}
 			  
 		@GetMapping("/api/writers/{writerId}")
-		   public Writer getWriter(@PathVariable(name="writerId")Long writerId) {
-			System.out.println("In get");
+		   public Writer getWriter(@PathVariable(name="writerId")Long writerId) {			
 			 return (Writer) writerService.getWriter(writerId);
 			  }
 			  
 		@PostMapping("/api/writers")
 		public void saveWriter(Writer writer){
-			writerService.saveWriter(writer);
-		 System.out.println("writer Saved Successfully");
+			writerService.saveWriter(writer);		 
 		}
 			  
 		@DeleteMapping("/api/writers/{writerId}")
-		public void deleteWriter(@PathVariable(name="writerId")Long writerId){
-			System.out.println("In delete writerId");
-			WriterService.deleteWriter(writerId);
-		 System.out.println("Writer Deleted Successfully");
+		public void deleteWriter(@PathVariable(name="writerId")Long writerId){			
+			WriterService.deleteWriter(writerId);		
 		}
 		 
 		@PutMapping("/api/writers/")
@@ -58,8 +54,7 @@ public class WriterRestController {
 			Writer writer = (Writer) writerService.getWriter(writerId);
 			Movie movie =  (Movie) movieService.getMovie(movieId);
 			if(movie != null && writer != null)
-			{ //  writer.getMovies().findBy(movieId)  NA BROUME TIN TAINIA KAI NA THN PROSTHETOUME//
-				
+			{				
 			 writerService.updateWriter(writer);		
 		  }
 		}	

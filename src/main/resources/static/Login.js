@@ -18,8 +18,9 @@ var settings = {
 };
 
 $.ajax(settings).success(function (response) {
-	alert(response);
-	if (response!=null){window.location.replace("Ergasia.html?userid="+response);}
+	
+	console.log(response);
+	if (response!=0){window.location.replace("Ergasia.html?userid="+response);}
 	else alert("Please provide correct credentials");
 });
 }
